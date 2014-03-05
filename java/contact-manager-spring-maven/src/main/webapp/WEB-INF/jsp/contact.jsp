@@ -7,7 +7,7 @@
 </head>
 <body>
  
-<h2>Contact Manager</h2>
+<h2>Contact Manager App</h2>
  
 <form:form method="post" action="add.html" commandName="contact">
  
