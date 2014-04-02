@@ -9,7 +9,7 @@ USE `customer_db` ;
 -- Table `customer_db`.`Customer`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `customer_db`.`Customer` (
-  `idCustomer` INT NOT NULL ,
+  `idCustomer` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(45) NOT NULL ,
   `address` VARCHAR(45) NULL ,
   `telephone` VARCHAR(15) NULL ,
@@ -22,7 +22,7 @@ ENGINE = InnoDB;
 -- Table `customer_db`.`Salesman`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `customer_db`.`Salesman` (
-  `idSalesman` INT NOT NULL ,
+  `idSalesman` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(45) NULL ,
   `telephone` VARCHAR(45) NULL ,
   PRIMARY KEY (`idSalesman`) )
@@ -33,7 +33,7 @@ ENGINE = InnoDB;
 -- Table `customer_db`.`Invoice`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `customer_db`.`Invoice` (
-  `idInvoice` INT NOT NULL ,
+  `idInvoice` INT NOT NULL AUTO_INCREMENT ,
   `date` DATE NOT NULL ,
   `total` DOUBLE NULL ,
   `idCustomer` INT NOT NULL ,
@@ -58,7 +58,7 @@ ENGINE = InnoDB;
 -- Table `customer_db`.`Product`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `customer_db`.`Product` (
-  `idProduct` INT NOT NULL ,
+  `idProduct` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(45) NOT NULL ,
   `description` VARCHAR(200) NULL ,
   `type` VARCHAR(45) NULL ,
