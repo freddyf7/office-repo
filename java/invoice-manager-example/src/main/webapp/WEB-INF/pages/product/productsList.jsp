@@ -29,7 +29,7 @@
     </tr>
 </c:forEach>
 </table>
+<a href="addProduct">Adicionar Produto</a>
 </c:if>
-
 </body>
 </html>
