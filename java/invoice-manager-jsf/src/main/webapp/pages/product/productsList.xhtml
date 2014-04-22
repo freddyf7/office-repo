@@ -30,7 +30,7 @@
 
                 <p:column>
                     <p:commandButton action="#{productBean.deleteProduct}" value="Delete" ajax="false">
-                        <f:setPropertyActionListener value="#{product.idProduct}" target="#{productBean.productDelete}" />
+                        <f:setPropertyActionListener value="#{product}" target="#{productBean.product}" />
                     </p:commandButton>
                 </p:column>
             </p:dataTable>
