@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+    <p:outputPanel id="registerContainer">
+        <h2>Add Product</h2>
+        <h:form>
+            <p:panelGrid columns="2">
+                <h:outputLabel for="name" value="Name" />
+                <p:inputText id="name" value="#{productBean.product.name}" />
+
+                <h:outputLabel for="description" value="Description" />
+                <p:inputText id="description" value="#{productBean.product.description}" />
+
+                <h:outputLabel for="type" value="Type" />
+                <p:inputText id="type" value="#{productBean.product.type}" />
+
+                <h:outputLabel for="price" value="Price" />
+                <p:inputText id="price" value="#{productBean.product.price}" />
+
+                <br />
+                <p:commandButton style="float:right;" value="Save" actionListener="#{productBean.saveProduct}" />
+            </p:panelGrid>
+        </h:form>
+    </p:outputPanel>
+</h:body>
+</html>
