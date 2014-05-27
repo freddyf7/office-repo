@@ -5,6 +5,7 @@
 
 <hibernate-configuration>
     <session-factory>
+        <property name="hibernate.show_sql">true</property>
         <mapping class="com.freddy.training.model.Customer" />
         <mapping class="com.freddy.training.model.Product" />
         <mapping class="com.freddy.training.model.Invoice" />

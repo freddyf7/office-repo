@@ -33,6 +33,11 @@
                         <f:setPropertyActionListener value="#{product}" target="#{productBean.product}" />
                     </p:commandButton>
                 </p:column>
+                <p:column>
+                    <h:commandLink action="/pages/product/editProduct.jsf" value="Edit">
+                        <f:setPropertyActionListener value="#{product}" target="#{productBean.product}" />
+                    </h:commandLink>
+                </p:column>
             </p:dataTable>
             <h:commandLink action="/pages/product/addProduct.jsf">Add Product</h:commandLink>
         </h:form>

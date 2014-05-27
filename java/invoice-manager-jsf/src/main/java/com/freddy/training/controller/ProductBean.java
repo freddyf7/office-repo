@@ -49,6 +49,10 @@ public class ProductBean implements Serializable {
         productList.remove(product);
     }
 
+    public void updateProduct(){
+        productService.updateProduct(product);
+    }
+
     public Product getProduct() {
         return product;
     }

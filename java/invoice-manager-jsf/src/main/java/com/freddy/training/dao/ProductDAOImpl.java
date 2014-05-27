@@ -34,4 +34,18 @@ public class ProductDAOImpl implements ProductDAO {
 
         return product;
     }
+
+    public void updateProduct(Product product){
+
+        Product loadedProduct = (Product) sessionFactory.getCurrentSession().load(Product.class, product.getIdProduct());
+
+        if (loadedProduct != null) {
+            loadedProduct.setDescription(product.getDescription());
+            loadedProduct.setName(product.getName());
+            loadedProduct.setPrice(product.getPrice());
+            loadedProduct.setType(product.getType());
+
+            sessionFactory.getCurrentSession().update(loadedProduct);
+        }
+    }
 }
