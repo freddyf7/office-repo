@@ -34,6 +34,7 @@ public class ProductBean implements Serializable {
         productList = productService.getAllProducts();
     }
 
+    /*Test*/
     public void saveProduct(){
         Product newProduct = new Product();
         newProduct.setDescription(this.product.getDescription());
