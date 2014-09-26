@@ -1,5 +1,7 @@
 package com.freddy.training.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,24 +11,24 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Customer")
 public class Customer {
-	
+
 	@Id
     @Column(name="idCustomer")
     @GeneratedValue
     private Integer idCustomer;
-     
+
     @Column(name="name")
     private String name;
- 
+
     @Column(name="address")
     private String address;
- 
+
     @Column(name="telephone")
-    private String telephone;        
+    private String telephone;
 
 	@Column(name="birthday")
-    private String birthday;
-	
+    private Date birthday;
+
 	public Integer getIdCustomer() {
 		return idCustomer;
 	}
@@ -59,11 +61,13 @@ public class Customer {
 		this.telephone = telephone;
 	}
 
-	public String getBirthday() {
+	public Date getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(String birthday) {
+	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
+
+
 }

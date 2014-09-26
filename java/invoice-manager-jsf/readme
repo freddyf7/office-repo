@@ -3,3 +3,5 @@ Proyecto de entrenamiento.
 Aplicacion web simple para gestion de facturas.
 
 Contruida con Maven + Spring(v?) + Hibernate(v?).
+
+Test URL: http://localhost:8080/invoice-manager-jsf/pages/customer/customersList.jsf

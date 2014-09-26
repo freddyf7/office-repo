@@ -16,7 +16,7 @@ public class InvoiceDAOImpl implements InvoiceDAO {
 
     @Override
     public void addInvoice(Invoice invoice) {
-        sessionFactory.getCurrentSession().save(invoice);
+        sessionFactory.getCurrentSession().persist(invoice);
     }
 
     @Override
