@@ -1,7 +1,5 @@
 package com.freddy.training.model;
 
-import java.math.BigDecimal;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,7 +18,7 @@ public class Item {
     private int idItem;
 
     @Column(name = "price")
-    private BigDecimal price;
+    private Double price;
 
     @Column(name = "quantity")
     private int quantity;
@@ -45,20 +43,6 @@ public class Item {
      */
     public void setIdItem(int idItem) {
         this.idItem = idItem;
-    }
-
-    /**
-     * @return the price
-     */
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    /**
-     * @param price the price to set
-     */
-    public void setPrice(BigDecimal price) {
-        this.price = price;
     }
 
     /**
@@ -102,5 +86,13 @@ public class Item {
     public void setProduct(Product product) {
         this.product = product;
     }
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
 
 }

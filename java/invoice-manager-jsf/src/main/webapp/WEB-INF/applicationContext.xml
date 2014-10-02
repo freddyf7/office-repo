@@ -45,4 +45,14 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 
+    <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+        <property name="scopes">
+            <map>
+                <entry key="view">
+                    <bean class="com.freddy.training.support.ViewScope"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
 </beans>

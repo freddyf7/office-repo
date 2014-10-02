@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
-import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -20,10 +19,9 @@ import com.freddy.training.model.Salesman;
 import com.freddy.training.service.CustomerService;
 import com.freddy.training.service.InvoiceService;
 import com.freddy.training.service.ProductService;
-import com.freddy.training.webapp.AddedItem;
 
 @Component("invoiceBean")
-@Scope("request")
+@Scope("view")
 public class InvoiceBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,40 +45,40 @@ public class InvoiceBean implements Serializable {
 
     private List<Item> addedItems;
 
-    //private int customerDelete;
-
     @PostConstruct
     public void init() {
     	logger.info("Testing log4j!!!");
 
-    	invoice = new Invoice();
-    	newItem = new Item();
-    	invoice.setCustomer(new Customer());
-    	invoice.setSalesman(new Salesman());
-    	newItem.setProduct(new Product());
-    	addedItems = new ArrayList<Item>();
-
+    	refreshBean();
     	invoiceList = invoiceService.getAllInvoices();
     }
 
-    /*Test*/
-    public void saveInvoice(){
-        Invoice newInvoice = new Invoice();
-        newInvoice.setDate(this.invoice.getDate());
-        newInvoice.setCustomer(this.invoice.getCustomer());
-        newInvoice.setSalesman(this.invoice.getSalesman());
-        newInvoice.getSalesman().setIdSalesman(1);
+    private void refreshBean(){
+    	addedItems = new ArrayList<Item>();
+        invoice = new Invoice();
+        newItem = new Item();
+        invoice.setCustomer(new Customer());
+    	invoice.setSalesman(new Salesman());
+    	newItem.setProduct(new Product());
+    }
 
-        //List<Item> items = new ArrayList<Item>();
-        //newItem.setInvoice(newInvoice);
-        //items.add(newItem);
-        newInvoice.setItems(addedItems);
+    public String saveInvoice(){
+    	invoice.setItems(addedItems);
+    	invoice.getSalesman().setIdSalesman(1);
+        invoiceService.addInvoice(invoice);
+        refreshBean();
 
-        invoiceService.addInvoice(newInvoice);
+        return "";
     }
 
     public void addItem(){
-    	addedItems.add(newItem);
+    	Product addedProduct = productService.getProduct(newItem.getProduct().getIdProduct());
+    	Item addedItem = new Item();
+    	addedItem.setProduct(addedProduct);
+    	addedItem.setPrice(addedProduct.getPrice());
+    	addedItem.setQuantity(newItem.getQuantity());
+    	addedItem.setInvoice(invoice);
+    	addedItems.add(addedItem);
     }
 
     public List<Customer> getAvailableCustomers(){
@@ -142,17 +140,6 @@ public class InvoiceBean implements Serializable {
 	public void setAddedItems(List<Item> addedItems) {
 		this.addedItems = addedItems;
 	}
-
-
-
-    /*public void deleteInvoice(){
-        customerService.removeCustomer(this.customer.getIdCustomer());
-        customerList.remove(customer);
-    }*/
-
-    /*public void updateCustomer(){
-        customerService.updateCustomer(customer);
-    }*/
 
 
 }

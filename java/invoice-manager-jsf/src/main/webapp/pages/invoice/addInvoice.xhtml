@@ -29,17 +29,17 @@
 
 				<h:outputLabel for="item" value="Item" />
 				<p:selectOneMenu id="item"
-					value="#{invoiceBean.newItem.product}">
+					value="#{invoiceBean.newItem.product.idProduct}">
 					<f:selectItems value="#{invoiceBean.availableProducts}"
 						var="product" itemLabel="#{product.name}"
-						itemValue="#{product}" />
+						itemValue="#{product.idProduct}" />
 				</p:selectOneMenu>
 
 				<h:outputLabel for="quantity" value="Quantity" />
 				<p:inputText id="quantity" value="#{invoiceBean.newItem.quantity}" />
 
 				<p:commandButton style="float:right;" value="Add"
-					actionListener="#{invoiceBean.addItem}" />
+					actionListener="#{invoiceBean.addItem}" ajax="false" />
 
 				<p:dataTable var="item" value="#{invoiceBean.addedItems}">
 					<p:column>
@@ -64,7 +64,7 @@
 
 				<br />
 				<p:commandButton style="float:right;" value="Save"
-					actionListener="#{invoiceBean.saveInvoice}" />
+					action="#{invoiceBean.saveInvoice}" ajax="false" />
 			</p:panelGrid>
 		</h:form>
 	</p:outputPanel>

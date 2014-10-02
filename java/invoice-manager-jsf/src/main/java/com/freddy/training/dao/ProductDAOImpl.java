@@ -30,7 +30,7 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     public Product getProduct(int idProduct) {
-        Product product = (Product) sessionFactory.getCurrentSession().load(Product.class, idProduct);
+        Product product = (Product) sessionFactory.openSession().get(Product.class, idProduct);
 
         return product;
     }
