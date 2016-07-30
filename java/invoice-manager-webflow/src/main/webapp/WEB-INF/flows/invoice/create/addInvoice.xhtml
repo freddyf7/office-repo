@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+	<p:outputPanel id="registerContainer">
+		<h2>Add Invoice</h2>
+		<h:form>
+			<p:panelGrid columns="2">
+				<h:outputLabel for="date" value="Date" />
+				<p:calendar id="date" value="#{invoiceBean.invoice.date}" />
+
+				<h:outputLabel for="customer" value="Customer" />
+				<p:selectOneMenu id="customer"
+					value="#{invoiceBean.invoice.customer.idCustomer}">
+					<f:selectItem itemLabel="Select One" itemValue="" />
+					<f:selectItems value="#{invoiceBean.availableCustomers}"
+						var="customer" itemLabel="#{customer.name}"
+						itemValue="#{customer.idCustomer}" />
+				</p:selectOneMenu>
+
+				<h:outputLabel for="item" value="Item" />
+				<p:selectOneMenu id="item"
+					value="#{invoiceBean.newItem.product.idProduct}">
+					<f:selectItems value="#{invoiceBean.availableProducts}"
+						var="product" itemLabel="#{product.name}"
+						itemValue="#{product.idProduct}" />
+				</p:selectOneMenu>
+
+				<h:outputLabel for="quantity" value="Quantity" />
+				<p:inputText id="quantity" value="#{invoiceBean.newItem.quantity}" />
+
+				<p:commandButton style="float:right;" value="Add"
+					actionListener="#{invoiceBean.addItem}" ajax="false" />
+
+				<p:dataTable var="item" value="#{invoiceBean.addedItems}">
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="Quantity" />
+						</f:facet>
+						<h:outputText value="#{item.quantity}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="Product Name" />
+						</f:facet>
+						<h:outputText value="#{item.product.name}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="Price" />
+						</f:facet>
+						<h:outputText value="#{item.price}" />
+					</p:column>
+				</p:dataTable>
+
+				<br />
+				<p:commandButton style="float:right;" value="Save"
+					action="#{invoiceBean.saveInvoice}" ajax="false" />
+			</p:panelGrid>
+		</h:form>
+	</p:outputPanel>
+</h:body>
+</html>
