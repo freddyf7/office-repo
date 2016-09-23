@@ -1,0 +1,13 @@
+< ------- URL -------->
+http://localhost:8080/Calculator
+
+< ------- Example Soap Request ------------->
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:calc="http://calc.ws.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <calc:add>
+         <a>4</a>
+         <b>4</b>
+      </calc:add>
+   </soapenv:Body>
+</soapenv:Envelope>
