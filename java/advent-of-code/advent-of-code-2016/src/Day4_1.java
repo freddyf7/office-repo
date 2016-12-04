@@ -46,14 +46,17 @@ public class Day4_1 {
                         if(commonLetters.equals(checksum)){
                             roomsIdSum = roomsIdSum + Integer.parseInt(sector);
                             StringBuilder decryptedName = new StringBuilder(name);
+
+                            // No need to rotate to full id, just rotate to modulo 26
                             int rotation = Integer.parseInt(sector) % 26;
 
                             for (int i = 0; i < name.length() ; i++) {
                                 char currentChar = name.charAt(i);
                                 char rotatedChar;
 
+                                // Char cannot be bigger than 122
                                 if(currentChar + rotation > 122){
-                                    rotatedChar = (char) (currentChar + rotation - 122 + 96);
+                                    rotatedChar = (char) (currentChar + rotation - 26);
                                 } else {
                                     rotatedChar = (char) (currentChar + rotation);
                                 }
