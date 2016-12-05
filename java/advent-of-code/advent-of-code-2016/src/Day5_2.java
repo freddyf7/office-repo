@@ -15,11 +15,9 @@ public class Day5_2 {
 
         int index = 0;
         boolean passwordFound = false;
-        StringBuilder password = new StringBuilder();
         String[] passwordChars = new String[8];
 
         while(!passwordFound){
-            char passwordChar;
             char passwordPositionChar;
             String inputIndexed = INPUT.concat(Integer.toString(index));
 
