@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  */
 public class Day14_1 {
 
-    private static String INPUT = "abc";
+    private static String INPUT = "ihaygndm";
     private static String PATTERN = "(\\w{1})\\1{2}";
 
     public static void main(String[] args) throws NoSuchAlgorithmException {
